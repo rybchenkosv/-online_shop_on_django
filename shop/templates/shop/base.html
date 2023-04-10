@@ -1,0 +1,25 @@
+{% load static %} <!--ЗАГРУЖАЕМ CSS-->
+<html>
+    <head>
+        <title>Интернет-магазин авторских украшений</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic" rel="stylesheet" type="text/css"> <!--ЗАГРУЖАЕМ ШРИФТ-->
+        <link rel="stylesheet" href="{% static 'css/shop.css' %}"> <!--ОБОЗНАЧАЕМ НА МЕСТОПОЛОЖЕНИЕ CSS ФАЙЛА-->
+    </head>
+    <body>
+        <div class="page-header">
+            <h5><a href="/">8 (967) 609 61 92</a></h5>
+            <h1><a href="/">АВТОРСКИЕ УКРАШЕНИЯ</a></h1>
+            <h5><a href="/">Доставка по всей России</a></h5>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
