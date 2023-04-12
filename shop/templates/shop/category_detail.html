@@ -1,0 +1,11 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+<h3>{{ categories.title }}</h3>
+{% if post %}
+   {% for product in post %}
+      {{ product.title }}
+   {% endfor %}
+{% endif %}
+{% endblock %}

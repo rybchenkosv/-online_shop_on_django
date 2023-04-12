@@ -1,13 +1,37 @@
 {% extends 'shop/base.html' %}
+{% load static %}
 
 {% block content %}
-    {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
+    <style>
+        ul.hr {
+            margin: 0; /* Обнуляем значение отступов */
+            padding: 4px; /* Значение полей */
+            }
+        ul.hr li {
+            display: inline; /* Отображать как строчный элемент */
+            margin-right: 5px; /* Отступ слева */
+            padding: 3px; /* Поля вокруг текста */
+                }
+    </style>
+    <div>
+        <h4>Категории</h4>
+        {% for i in categories %}
+            <li {% if category.slug == i.slug %} class="selected"{% endif %}>
+                <a href="">{{ i.name }}</a>
+            </li>
+        {% endfor %}
+    </div>
+    <div>
+        <h4>Товары в наличии</h4>
+        {% for product in post %}
+            <div>
+                <a href="">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_img.png' %}{% endif %}">
+                </a>
+                <b><p><a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br></b>
+                <p>{{ product.description }}
+                <p>{{ product.price }}
             </div>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}
